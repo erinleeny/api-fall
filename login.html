@@ -10,56 +10,69 @@
 			<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 	</head>
 	<script>
-		var suPassword;
-		var suEmail;
-		var suAge;
-		var email;
-		var password;
+	var database;
+	var suPassword;
+	var suEmail;
+	var suAge;
+	var email;
+	var password;
+	var user = {
+		email: $("input#email").val(),
+		password: $("input#password").val(),
+	};
 	</script>
 	<body>
-	<h1>BLUEBERRY ACCOUNTS</h1>
-	<h4>WELCOME TO BLUEBERRY ACCOUNTS (because pinkberry was already taken) ! WHERE YOU DO ABSOLUTELY NOTHING BUT SIGN UP AND LOG IN! SIGN UP FOR A BLUEBERRY ACCOUNT OR LOG IN IF YOU ALREADY DID (work in progress) ! <h4>
 		<br>
-		<br>
-		SIGN UP HERE
+	SIGN UP HERE
 		<br><br/>
-		: e n t e r - a g e : 
+	: e n t e r - a g e : 
 		<br><br/>
-		<input type="text" id = "suAge" style="width: 80px; height: 30px;">
+	<input type="text" id = "suAge" style="width: 80px; height: 30px;">
 		<br><br/>
-		: e n t e r - e m a i l : 
+	: e n t e r - e m a i l : 
 		<br><br/>
-		<input type="text" id="suEmail" value="hello" style="width: 150px; height: 30px;"/>
+	<input type="text" id="suEmail" value="hello" style="width: 150px; height: 30px;"/>
 		<br><br/>
-		: e n t e r - p a s s w o r d :
+	: e n t e r - p a s s w o r d :
 		<br><br/>
-		<input type="password" id="suPassword" value = "goodbye" style="width: 100px; height: 30px;"/>
+	<input type="password" id="suPassword" value = "goodbye" style="width: 100px; height: 30px;"/>
 		<br><br/>
-		<button id="button1">Sign Up</button>
+	<button id="button1">Sign Up</button>
 		<br><br/>
-		ALREADY HAVE AN ACCOUNT?
+	ALREADY HAVE AN ACCOUNT?
 		<br><br/>
-		LOGIN HERE
+	LOGIN HERE
 		<br><br/>
-		 :  e m a i l :  
+	:  e m a i l :  
+		<br><br/>
+	<input type="text" id="email" style="width: 150px; height: 30px;"/>
 		 <br><br/>
-		 <input type="text" id="email" style="width: 150px; height: 30px;"/>
-		 <br><br/>
-		: p a s s w o r d :  
+	: p a s s w o r d :  
 		<br><br/>
-		<input type="password" id="password" style="width: 100px; height: 30px;"/>
+	<input type="password" id="password" style="width: 100px; height: 30px;"/>
 		<br><br/>
-
-		<button id="button2">Login</button>
+	<button id="button2">Login</button>
 	</body>
 </html>
-<script>
-var user = [];
-//database
-	var userpass = {
-		email: $("input#suEmail").val(),
-		password: $("input#suPassword").val(),
+	<script>
+	function saveData() {
+		var user = {
+			email: $("input#email").val(),
+			password: $("input#password").val(),
+		}
+	var database = [];
+	all[user] = database;
+	database[1] = password;
+	database[0] = password;
+	console.log("username pass" + database);
 	}
+
+//database
+	//var userpass_1 = {
+	//	email: $("input#suEmail").val(),
+	//	password: $("input#suPassword").val(),
+	
+	
 	//saves a set of password and usernames
 		//user.push(userpass);
 		//adds to the database
@@ -74,7 +87,7 @@ var user = [];
 		else if($("input#suAge").val() >= 13 && $("input#suAge").val() < 120){
 		console.log("i think it worked");
 		alert("YOU HAVE SIGNED UP.");
-		user.push(userpass);
+		database.push(user);
 	//	user.email = $("input#suEmail").val();
 	//	user.password = $("input#suPassword").val();
 		}
@@ -98,7 +111,7 @@ var user = [];
 	//	if($("input#email").val() == user[1].email && //$("input#password") == user[1].password){
 	//		console.log("YOU HAVE LOGGED IN SUCCESSFULLY.");
 	//	}
-		if ($("input#email").val() == user[0].email && $("input#password").val() == user[0].password){
+		if ($("input#email").val() == database[0].email && $("input#password").val() == database[0].password){
 			alert("YOU HAVE LOGGED IN SUCCESSFULLY.");
 		} 
 		else {
