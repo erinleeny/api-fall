@@ -17,10 +17,10 @@
 
 		SIGN UP HERE<br><br/>
 		: e n t e r - e m a i l : <br><br/>
-		<input type="text" id="suEmail"/><br><br/>
+		<input type="text" id="suEmail" value="hello"/><br><br/>
 		: e n t e r - p a s s w o r d :
 		<br><br/>
-		<input type="password" id="suPassword"/><br><br/>
+		<input type="password" id="suPassword" value = "goodbye"/><br><br/>
 		<button id="button1">Sign Up</button>
 		<br><br/>
 		LOGIN HERE
@@ -37,29 +37,41 @@
 </html>
 <script>
 	var user = {
-		email: suEmail,
-		password: suPassword,
+		email: $("input#suEmail").val();,
+		password: $("input#suPassword").val();,
 	};
-
+	var user1 = {
+		email: hello,
+		password: goodbye,
+	}
+	var database = [user, user1]
+	//this acts as a database for users who signed up
+suPassword=$("input#suPassword").val();
+suEmail=$("input#suEmail").val();
 	$("#button1").click(function signUp () {
 		alert("YOU HAVE SIGNED UP.");
+		console.log("i think it worked");
+		user.email = $("input#suEmail").val();
+		user.password = $("input#suPassword").val();
 	});
-	function saveEmail () {
-		var suEmail = $("input#suEmail").val();
-		var suPassword = $("input#suPassword").val();
-	}
-	var password = $("input#password").val();
-	var email = $("input#email").val(); 
-	$("#button2").click(function () {
+	//this states that when the sign up button is clicked, whatevers in the text field will be saved in the objects
+	 password = $("input#password").val();
+	 email = $("input#email").val(); 
+	//the password and email for login are now variables
+	$("#button2").click(function logIn() {
 		console.log("hello");
-		if(email == "test@test.com" && password == "password"){
+		if(email == user1.email && password == user1.password){
 			console.log("YO HAVE LOGGED IN SUCCESSFULLY.");
 		}
-		else if (email == suEmail && password == suPassword){
+		else if (email == user.email && password == user.password){
 			alert("YOU HAVE LOGGED IN SUCCESSFULLY.");
 		} 
-		else {
+	else {
 			alert("YOUR USERNAME AND OR PASSWORD IS INVALID");
+			console.log("sorry");
 		}
 	});
+	//this accepts only signed up passwords and usernames
 </script>
+
+
