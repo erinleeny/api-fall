@@ -1,0 +1,58 @@
+<html>
+	<head>
+	<style>
+	body {
+	background-color: pink;
+}
+	</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	</head>
+	<body>
+
+		SIGN UP HERE<br><br/>
+		: e n t e r - e m a i l : <br><br/>
+		<input type="text" id="suEmail"/><br><br/>
+		: e n t e r - p a s s w o r d :
+		<br><br/>
+		<input type="password" id="suPassword"/><br><br/>
+		<button onclick id="button1" = "button1">Sign Up</button>
+		<br><br/>
+		LOGIN HERE
+		<br><br/>
+		 :  e m a i l :  <br><br/>
+		 <input type="text" id="email"/>
+		 <br><br/>
+		: p a s s w o r d :  <br><br/>
+		<input type="password" id="password"/>
+		<br><br/>
+
+		<button onclick id="button2" ="button2">Login</button>
+	</body>
+</html>
+<script>
+	var user = {
+		email: suEmail,
+		password: suPassword,
+	}
+	var suEmail = $("input#suEmail").val();
+	var suPassword = $("input#suPassword").val();
+	$("#button1").click(function signUp () {
+		alert("YOU HAVE SIGNED UP.");
+	});
+	var password = $("input#password").val();
+	var email = $("input#email").val(); 
+	$("#button2").click(function () {
+		//console.log("hello");
+		if(email == "test@test.com" && password == "password"){
+			alert("YO HAVE LOGGED IN SUCCESSFULLY.");
+		}
+		else if (email == suEmail && password == suPassword){
+			alert("YOU HAdgVE LOGGED IN SUCCESSFULLY.");
+		} 
+		else {
+			alert("YOUR USERNAME AND OR PASSWORD IS INVALID");
+		}
+	});
+</script>
+
+
