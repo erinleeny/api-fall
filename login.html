@@ -17,7 +17,8 @@
 		var password;
 	</script>
 	<body>
-	WELCOME TO BLUEBERRY ACCOUNTS (because pinkberry was already taken) ! WHERE YOU DO ABSOLUTELY NOTHING BUT SIGN UP AND LOG IN! SIGN UP FOR A BLUEBERRY ACCOUNT OR LOG IN IF YOU ALREADY DID (work in progress) !
+	<h1>BLUEBERRY ACCOUNTS</h1>
+	<h4>WELCOME TO BLUEBERRY ACCOUNTS (because pinkberry was already taken) ! WHERE YOU DO ABSOLUTELY NOTHING BUT SIGN UP AND LOG IN! SIGN UP FOR A BLUEBERRY ACCOUNT OR LOG IN IF YOU ALREADY DID (work in progress) ! <h4>
 		<br>
 		<br>
 		SIGN UP HERE
@@ -54,12 +55,14 @@
 </html>
 <script>
 var user = [];
+//database
 	var userpass = {
 		email: $("input#suEmail").val(),
 		password: $("input#suPassword").val(),
-	};
-		user.push(userpass);
-
+	}
+	//saves a set of password and usernames
+		//user.push(userpass);
+		//adds to the database
 	var suPassword=$("input#suPassword").val();
 	var suEmail=$("input#suEmail").val();
 	var suAge = $("input#suAge").val();
@@ -67,20 +70,24 @@ var user = [];
 		if($("input#suAge").val() < 13){
 			alert("You are not eligible to sign up for an account.");
 		}
+		//no one under 13 can sign up
 		else if($("input#suAge").val() >= 13 && $("input#suAge").val() < 120){
 		console.log("i think it worked");
 		alert("YOU HAVE SIGNED UP.");
-		user.email = $("input#suEmail").val();
-		user.password = $("input#suPassword").val();
+		user.push(userpass);
+	//	user.email = $("input#suEmail").val();
+	//	user.password = $("input#suPassword").val();
 		}
+		//13 and above sign up
 		else if($("input#suAge").val() >= 120){
 			alert("Aren't you a little old to be signing up for an account? How do you even know about the internet?");
 		}
+		//old people or fake ages can't sign up
 		else {
 			alert("Your form is invalid.");
 		}
+		//no words or letters for ages can't sign up
 	});
-	//this states that when the sign up button is clicked, whatevers in the text field will be saved in the objects
 	 
 	 password = $("input#password").val();
 	 email = $("input#email").val(); 
