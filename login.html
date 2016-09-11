@@ -2,7 +2,7 @@
 	<head>
 		<style>
 			body {
-				background-color: pink;
+				background-color: #B0E0E6;
 				font-family: 'raleway', extra light;
 			}
 		</style>
@@ -17,6 +17,9 @@
 		var password;
 	</script>
 	<body>
+	WELCOME TO BLUEBERRY ACCOUNTS (because pinkberry was already taken) ! WHERE YOU DO ABSOLUTELY NOTHING BUT SIGN UP AND LOG IN! SIGN UP FOR A BLUEBERRY ACCOUNT OR LOG IN IF YOU ALREADY DID (work in progress) !
+		<br>
+		<br>
 		SIGN UP HERE
 		<br><br/>
 		: e n t e r - a g e : 
@@ -50,20 +53,12 @@
 	</body>
 </html>
 <script>
-	var user = {
+var user = [];
+	var userpass = {
 		email: $("input#suEmail").val(),
 		password: $("input#suPassword").val(),
 	};
-	var user1 = {
-		email: "hello",
-		password: "goodbye",
-	}
-/*	var user2 = {
-		email:
-		password:
-	} */
-	var database = [user, user1]
-	//this acts as a database for users who signed up
+		user.push(userpass);
 
 	var suPassword=$("input#suPassword").val();
 	var suEmail=$("input#suEmail").val();
@@ -93,10 +88,10 @@
 
 	$("#button2").click(function logIn() {
 		console.log("hello");
-		if($("input#email").val() == user1.email && $("input#password") == user1.password){
-			console.log("YOU HAVE LOGGED IN SUCCESSFULLY.");
-		}
-		else if ($("input#email").val() == user.email && $("input#password").val() == user.password){
+	//	if($("input#email").val() == user[1].email && //$("input#password") == user[1].password){
+	//		console.log("YOU HAVE LOGGED IN SUCCESSFULLY.");
+	//	}
+		if ($("input#email").val() == user[0].email && $("input#password").val() == user[0].password){
 			alert("YOU HAVE LOGGED IN SUCCESSFULLY.");
 		} 
 		else {
