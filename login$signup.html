@@ -10,6 +10,7 @@ body {
 <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 </head>
 <script>
+
 var database;
 var suPassword;
 var suEmail;
@@ -57,8 +58,8 @@ var user = {
 <script>
 function saveData() {
 	var user = {
-		email: $("input#email").val(),
-		password: $("input#password").val(),
+		email: $("input#suEmail").val(),
+		password: $("input#suPassword").val(),
 	}
 	var database = [];
 	all[user] = database;
@@ -85,6 +86,7 @@ $("#button1").click(function signUp () {
 	}
 	//no one under 13 can sign up
 	else if($("input#suAge").val() >= 13 && $("input#suAge").val() < 120){
+		saveData();
 		console.log("i think it worked");
 		alert("YOU HAVE SIGNED UP.");
 		database.push(user);
