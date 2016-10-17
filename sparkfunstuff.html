@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  </head>
+  <body>
+  	<br><br/>
+name <input type="text" id="name" style="width: 150px; height: 30px;"/>
+    <br><br/>
+age <input type="text" id = "age" style="width: 80px; height: 30px;">
+  	<br><br/>
+facebook	<input type="text" id="facebook" style="width: 150px; height: 30px;"/>
+  	<br><br/>
+instagram <input type="text" id="instagram" style="width: 100px; height: 30px;"/>
+  	<br><br/>
+snapchat	<input type="text" id="snapchat" style="width: 100px; height: 30px;"/>
+  	<br><br/>
+twitter <input type="text" id="twitter" style="width: 100px; height: 30px;"/>
+  	<button id="button">Login</button>
+  </body>
+
+</html>
+<script>
+$.ajax({
+     type: "GET",
+     url: "http://data.sparkfun.com/output/0l3ZOEov2xt66VZdvwl5.json",
+     success: (response) => {
+       console.log(response[0]);
+     }
+   });
+   $.ajax({
+    url: 'https://data.sparkfun.com/input/0l3ZOEov2xt66VZdvwl5',
+    headers: {
+        'Phant-Private-Key':'D6amqrwAbptrr68ZAPb5'
+    },
+    method: 'POST',
+    dataType: 'json',
+    data: { name: "Erin", age:13, facebook: "none", instagram:"qwerty", snapchat:"blah", twitter:"uiop"},
+    success: function(data) {
+      console.log('success: ' + data);
+      var database = [];
+      var user = {
+        name:"",
+        age:"",
+        facebook:"",
+        instagram:"",
+        twitter:"",
+        snapchat:""
+      };
+      user.name = $("#name").val();
+      user.age = $("#age").val();
+      user.facebook = $("#facebook").val();
+      user.instagram = $("#instagram").val();
+      user.twitter = $("#twitter").val();
+      user.snapchat = $("#snapchat").val();
+      $("#button").click(function () {
+        alert("you have logged in");
+      	database.push(user);
+        database.push(data);
+      });
+    }
+
+  });
+</script>
