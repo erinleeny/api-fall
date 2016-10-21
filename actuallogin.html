@@ -1,0 +1,113 @@
+<html>
+<head>
+<style>
+body {
+	background-color: #B0E0E6;
+	font-family: 'raleway', extra light;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+</head>
+<script>
+	var database;
+	var suPassword;
+	var suEmail;
+	var suAge;
+	var email;
+	var password;
+</script>
+<body>
+	<br>
+	<b><u>SIGN UP HERE</u></b>
+	<br><br/>
+	: e n t e r - a g e :
+	<br><br/>
+	<input type="text" id = "suAge" style="width: 80px; height: 30px;">
+	<br><br/>
+	: e n t e r - e m a i l :
+	<br><br/>
+	<input type="text" id="suEmail" value="hello" style="width: 150px; height: 30px;"/>
+	<br><br/>
+	: e n t e r - p a s s w o r d :
+	<br><br/>
+	<input type="password" id="suPassword" value = "goodbye" style="width: 100px; height: 30px;"/>
+	<br><br/>
+	<button id="button1">Sign Up</button>
+	<br><br/>
+	ALREADY HAVE AN ACCOUNT?
+	<br><br/>
+	LOGIN HERE
+	<br><br/>
+	:  e m a i l :
+	<br><br/>
+	<input type="text" id="email" style="width: 150px; height: 30px;"/>
+	<br><br/>
+	: p a s s w o r d :
+	<br><br/>
+	<input type="password" id="password" style="width: 100px; height: 30px;"/>
+	<br><br/>
+	<button id="button2">Login</button>
+</body>
+</html>
+<script>
+
+var user = {
+		email: "",
+		password: ""
+	};
+	var database = [];
+	//database[0] = suEmail;
+	//database[1] = suPassword;
+	console.log(database);
+var suPassword=$("input#suPassword").val();
+var suEmail=$("input#suEmail").val();
+var suAge = $("input#suAge").val();
+$("#button1").click(function () {
+	if($("input#suAge").val() < 13){
+		alert("You are not eligible to sign up for an account.");
+	}
+	//no one under 13 can sign up
+	else if($("input#suAge").val() >= 13 && $("input#suAge").val() < 120){
+		console.log("i think it worked");
+		alert("YOU HAVE SIGNED UP.");
+		var user = {};
+		user.email = $("input#suEmail").val();
+		user.password = $("input#suPassword").val();
+		database.push(user);
+	}
+	//13 and above sign up
+	else if($("input#suAge").val() >= 120){
+		alert("Aren't you a little old to be signing up for an account? How do you even know about the internet?");
+	}
+	//old people or fake ages can't sign up
+	else {
+		alert("Your form is invalid.");
+	}
+	//no words or letters for ages can't sign in
+});
+password = $("input#password").val();
+email = $("input#email").val();
+//the password and email for login are now variables
+$("#button2").click(function logIn() {
+	console.log("hello");
+	for (var i = 0; i <= database.length - 1; i++) {
+		var state = false;
+		if($("input#email").val() == database[i].email && $("input#password").val() == database[i].password){
+			state = true;
+			break;
+		}
+		else {
+		//	alert("YOUR USERNAME AND OR PASSWORD IS INVALID");
+			state = false;
+		}
+	}
+	if(state){
+		alert("You have logged in.");
+	}
+	else {
+		alert("Your username or password is incorrect.")
+	}
+});
+//this accepts only signed up passwords and usernames
+</script>
