@@ -84,7 +84,7 @@ $("#button1").click(function () {
 	else {
 		alert("Your form is invalid.");
 	}
-	//no words or letters for ages can't sign up
+	//no words or letters for ages can't sign in
 });
 password = $("input#password").val();
 email = $("input#email").val();
@@ -102,7 +102,7 @@ $("#button2").click(function logIn() {
 			state = false;
 		}
 	}
-	if(state == true){
+	if(state){
 		alert("You have logged in.");
 	}
 	else {
