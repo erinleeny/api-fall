@@ -10,27 +10,22 @@ body {
 <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 </head>
 <script>
-
-var database;
-var suPassword;
-var suEmail;
-var suAge;
-var email;
-var password;
-var user = {
-//	email: $("input#email").val(),
-//	password: $("input#password").val(),
-};
+	var database;
+	var suPassword;
+	var suEmail;
+	var suAge;
+	var email;
+	var password;
 </script>
 <body>
 	<br>
 	<b><u>SIGN UP HERE</u></b>
 	<br><br/>
-	: e n t e r - a g e : 
+	: e n t e r - a g e :
 	<br><br/>
 	<input type="text" id = "suAge" style="width: 80px; height: 30px;">
 	<br><br/>
-	: e n t e r - e m a i l : 
+	: e n t e r - e m a i l :
 	<br><br/>
 	<input type="text" id="suEmail" value="hello" style="width: 150px; height: 30px;"/>
 	<br><br/>
@@ -44,11 +39,11 @@ var user = {
 	<br><br/>
 	LOGIN HERE
 	<br><br/>
-	:  e m a i l :  
+	:  e m a i l :
 	<br><br/>
 	<input type="text" id="email" style="width: 150px; height: 30px;"/>
 	<br><br/>
-	: p a s s w o r d :  
+	: p a s s w o r d :
 	<br><br/>
 	<input type="password" id="password" style="width: 100px; height: 30px;"/>
 	<br><br/>
@@ -56,9 +51,7 @@ var user = {
 </body>
 </html>
 <script>
-var database = [];
 
-	
 var user = {
 		email: "",
 		password: ""
@@ -67,7 +60,6 @@ var user = {
 	//database[0] = suEmail;
 	//database[1] = suPassword;
 	console.log(database);
-
 var suPassword=$("input#suPassword").val();
 var suEmail=$("input#suEmail").val();
 var suAge = $("input#suAge").val();
@@ -77,7 +69,6 @@ $("#button1").click(function () {
 	}
 	//no one under 13 can sign up
 	else if($("input#suAge").val() >= 13 && $("input#suAge").val() < 120){
-
 		console.log("i think it worked");
 		alert("YOU HAVE SIGNED UP.");
 		var user = {};
@@ -95,25 +86,27 @@ $("#button1").click(function () {
 	}
 	//no words or letters for ages can't sign up
 });
-
 password = $("input#password").val();
-email = $("input#email").val(); 
+email = $("input#email").val();
 //the password and email for login are now variables
-
 $("#button2").click(function logIn() {
 	console.log("hello");
-	x = 0;
 	for (var i = 0; i <= database.length - 1; i++) {
-		 if($("input#email").val() == database[i].email && $("input#password").val() == database[i].password){
-			alert("YOU HAVE LOGGED IN SUCCESSFULLY.");
+		var state = false;
+		if($("input#email").val() == database[i].email && $("input#password").val() == database[i].password){
+			state = true;
 			break;
-
 		}
-
 		else {
-			alert("YOUR USERNAME AND OR PASSWORD IS INVALID");
-			console.log("sorry");
+		//	alert("YOUR USERNAME AND OR PASSWORD IS INVALID");
+			state = false;
 		}
+	}
+	if(state == true){
+		alert("You have logged in.");
+	}
+	else {
+		alert("Your username or password is incorrect.")
 	}
 });
 //this accepts only signed up passwords and usernames
