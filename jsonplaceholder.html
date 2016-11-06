@@ -25,24 +25,26 @@
   <div class = "container">
     <div class="row">
       <div id = "success" class="hidden alert alert-success">You have successful entered an id.</div>
-      <div class="col-md-6">
-
+      <div class="col-md-12">
         <form>
-          <h2>JSONPLACEHOLDER BY MEE</h2>
+          <h2>JSONPLACEHOLDER BY MEE</h2><span class = "glyphicon glyphicon-heart-empty"></span>
+        </div>
           <br>
           <div class="form-group">
+            <div class="col-md-4">
             <label for="ID"> ID</label>
             <input type="text" class="form-control" id="id" placeholder="id">
-          </div>
           <br>
+                <p></p>
           <button id="button">DONE</button><br>
           <br>
         </form>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br>
       </div>
-      <div class="col-md-6">
       </div>
-      <p></p>
+      <div class="col-md-8">
+        <div id = "div"></div>
+      </div>
     </div>
   </div>
   <script>
@@ -53,15 +55,14 @@
     //ensures id is possible
     if($("#id").val() > -1 && $("#id").val() < 11){
       let enterID = $("#id").val()-1;
-      //enters id
-
-      database.push(enterID);
+      //alert comes in
       $(".alert-success").removeClass("hidden");
       $(".alert-success").fadeIn();
       setTimeout(function (){
         $("#success.alert-success").fadeOut();
       }, 5000);
       root='https://jsonplaceholder.typicode.com',
+      //post
       $.ajax({
         url:root + "/posts/" + (enterID-1+2),
         method: 'GET'
@@ -69,7 +70,7 @@
         //console.log(data);
         $("p").append("<br> POST " + (enterID-1+2) + "<br><a href='" + root + "/comments/" + (enterID-1+2) + "'>" +
         data.title + "<br><br>" + "  " + data.body + "</a>" + "<br><br>");
-
+//todos
       });
       $.ajax({
         url:root + "/todos/" + (enterID-1+2),
@@ -78,7 +79,7 @@
         //console.log(data);
         $("p").append("TODOS " + (enterID-1+2)+ "<br><a href='" + root + "/todos/" + (enterID-1+2) + "'>" +
         data.title + "</a><br><br>");
-
+//albums
       });
       $.ajax({
         url:root + "/albums/" + (enterID-1+2),
@@ -87,15 +88,16 @@
         console.log(data);
         $("p").append("ALBUM " + (enterID-1+2)+  "<br>" + data.title + "<br><br>");
       });
+      //photos
       $.ajax({
         url:root + "/photos",
         method: 'GET'
       }).then(function(data) {
         console.log(data[0].albumId);
-
+//gets all pics
         for(var i = 0; i<=data.length-1; i++){
           if(data[i].albumId==(enterID-1+2)){
-            $("form").append("<img src='" + data[i].thumbnailUrl + "'>")
+            $("#div").append("<img src='" + data[i].thumbnailUrl + "'>")
           }
         }
       });
