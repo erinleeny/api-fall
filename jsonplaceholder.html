@@ -48,8 +48,7 @@
     </div>
   </div>
   <script>
-  let database = [];
-  //on click
+
   $("form").submit(function (event){
     event.preventDefault();
     //ensures id is possible
@@ -64,12 +63,14 @@
       root='https://jsonplaceholder.typicode.com',
       //post
       $.ajax({
-        url:root + "/posts/" + (enterID-1+2),
+        url:root + "/posts?userId=" + (enterID-1+2),
         method: 'GET'
       }).then(function(data) {
         //console.log(data);
+        for(let i = 0; i<=data.length; i++){
         $("p").append("<br> POST " + (enterID-1+2) + "<br><a href='" + root + "/comments/" + (enterID-1+2) + "'>" +
-        data.title + "<br><br>" + "  " + data.body + "</a>" + "<br><br>");
+        data[i].title + "<br><br>" + "  " + data[i].body + "</a>" + "<br><br>");
+      }
 //todos
       });
       $.ajax({
@@ -90,7 +91,7 @@
       });
       //photos
       $.ajax({
-        url:root + "/photos",
+        url:root + "/photos?userId=",
         method: 'GET'
       }).then(function(data) {
         console.log(data[0].albumId);
@@ -103,8 +104,6 @@
       });
 
 
-    }
-    else {
     }
   });
 
